@@ -1,5 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
+import com.codepath.apps.restclienttemplate.TimeFormatter;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +13,7 @@ public class Tweet {
 
     public String body;
     public String createdAt;
+    public String timestamp;
     public long id;
     public User user;
 
@@ -18,6 +21,7 @@ public class Tweet {
         Tweet tweet = new Tweet();
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
+        tweet.timestamp = TimeFormatter.getTimeDifference(tweet.createdAt);
         tweet.id = jsonObject.getLong("id");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         return tweet;
@@ -32,4 +36,15 @@ public class Tweet {
 
         return tweets;
     }
+
+    public static String getFormattedTimestamp(JSONObject jsonObject) throws JSONException {
+        return TimeFormatter.getTimeDifference(jsonObject.getString("created_at"));
+    }
+//            JsonHttpResponseHandler handler, long maxId) {
+//        String apiUrl = getApiUrl("statuses/home_timeline.json");
+//        // Can specify query string params directly or through RequestParams.
+//        RequestParams params = new RequestParams();
+//        params.put("count", 25);
+//        params.put("max_id", maxId);
+//        client.get(apiUrl, params, handler);
 }

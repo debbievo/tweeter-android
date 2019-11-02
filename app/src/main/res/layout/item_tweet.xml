@@ -24,6 +24,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:textStyle="bold"
         tools:text="derbypores" />
 
     <TextView
@@ -36,4 +37,15 @@
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         tools:text="Look I'm tweeting." />
+
+    <TextView
+        android:id="@+id/tvTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/tvScreenName"
+        android:textColor="#777777"
+        tools:text="500h" />
 </RelativeLayout>
